@@ -4,6 +4,8 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+*.rowmapper
+
 ### STS ###
 .apt_generated
 .classpath

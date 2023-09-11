@@ -1,4 +1,4 @@
-package com.tuaev.GreenBlog.Controllers;
+package com.tuaev.GreenBlog.Controllers.ControllerMainPage;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -6,15 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class ControllerOne {
+public class ControllerMainPage {
 
-    @RequestMapping(value = "/main", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String main(Model model){
-
-        String helloWorld = "Hello World!";
-        model.addAttribute("helloWorld", helloWorld);
-
-        return "main";
+    return "mainPage";
     }
 
 }

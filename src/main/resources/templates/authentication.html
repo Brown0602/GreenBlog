@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="icon" href="/img/b.png">
+    <link type="text/css" href="/authenticationStyle.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Вход</title>
+</head>
+<body>
+
+<header class="main">
+</header>
+
+<a href="/" ><img class="header_image" src="/img/b.png" width="75" height="75"></a>
+
+<form action="/authentication" method="post">
+    <header class="m">Вход</header>
+    <input class="username" type="email"  required name="username" placeholder="Введите Email"><br>
+    <input class="password" type="password" required name="password" placeholder="Введите пароль"><br>
+    <input class="button" type="submit" value="Войти"><br>
+    <a class="registration" href="/registration">Создать аккаунт</a><br>
+    <a class="recoverPassword" href="/recover/password">Забыли пароль?</a>
+</form>
+
+</body>
+</html>

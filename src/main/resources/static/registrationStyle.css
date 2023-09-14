@@ -49,6 +49,12 @@ display: block;
 margin:0 auto;
 }
 
+.errorChecksPasswords{
+color: red;
+font-size: 20px;
+margin-left: 35.9px;
+}
+
 .button{
 color: white;
 background: #293244;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="icon" href="/img/b.png">
     <link type="text/css" href="/authenticationStyle.css" rel="stylesheet">
@@ -13,13 +13,16 @@
 
 <a href="/" ><img class="header_image" src="/img/b.png" width="75" height="75"></a>
 
-<form action="/authentication" method="post">
+<form method="post">
     <header class="m">Вход</header>
-    <input class="username" type="email"  required name="username" placeholder="Введите Email"><br>
+    <input class="username" type="email"  required name="email" placeholder="Введите Email"><br>
     <input class="password" type="password" required name="password" placeholder="Введите пароль"><br>
     <input class="button" type="submit" value="Войти"><br>
+    <div th:if="${userSearchErrorBoolean == 'true'}">
+        <div class="userSearchError" th:text="${userSearchError}"></div>
+    </div>
     <a class="registration" href="/registration">Создать аккаунт</a><br>
-    <a class="recoverPassword" href="/recover/password">Забыли пароль?</a>
+    <a class="recoverPassword" href="/forgot/password">Забыли пароль?</a>
 </form>
 
 </body>

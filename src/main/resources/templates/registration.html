@@ -12,31 +12,28 @@
 
 <a href="/" ><img class="header_image" src="/img/b.png" width="75" height="75"></a>
 
-<form method="post">
-
+<form class="registration" th:if="${registrationForm == 'true'}" method="post">
     <header class="m">Регистрация</header>
-
-    <input class="username" type="email" required name="email" th:value="${email}" placeholder="Введите Email"><br>
-
+    <input class="email" type="email" required name="email" th:value="${email}" placeholder="Введите Email"><br>
     <input class="password" type="password" required name="password" th:value="${password}" placeholder="Введите пароль"><br>
-
-    <input class="replay-password" type="password" required th:value="${checkPassword}" name="checkPassword" placeholder="Повторите пароль"><br>
-
-    <div class="errorChecksPasswords">
-        <div class="text" th:text="${errorChecksPasswords}"></div>
-    </div><br>
-
+    <input class="checkPassword" type="password" required th:value="${checkPassword}" name="checkPassword" placeholder="Повторите пароль"><br>
+    <div th:if="${errorChecksPasswords == 'true'}">
+        <div class="errorChecksPasswordsText" th:text="${errorChecksPasswordsText}"></div>
+    </div>
+    <div th:if="${errorEmail == 'true'}">
+        <div class="errorEmailText" th:text="${errorEmailText}"></div>
+    </div>
     <input class="button" type="submit" value="Зарегистрироваться"><br>
-
 </form>
 
-<!--<form method="post">-->
-
-<!--    <header class="m">Подтверждение регистрации</header>-->
-
-<!--    <input class="confirmationOfRegistration">-->
-
-<!--</form>-->
+<form class="registrationConfirmationForm" th:if="${registrationConfirmationForm == 'true'}" method="post">
+    <header class="headerAuthenticationConfirmation">Подтверждение регистрации</header>
+    <input class="confirmationOfRegistration" type="text" required name="code" placeholder="Введите код подтверждения"><br>
+    <input class="buttonAuthenticationConfirmation" type="submit" value="Подтвердить"><br>
+    <div class="errorChecksCode" th:if="${errorChecksCode == 'true'}">
+        <div class="text" th:text="${errorChecksCodeText}"></div>
+    </div>
+</form>
 
 </body>
 </html>

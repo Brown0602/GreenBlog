@@ -1,9 +1,9 @@
-package com.tuaev.GreenBlog.RegistrationNewUser.CodeAutoGeneration;
+package com.tuaev.GreenBlog.service.CodeAutoGenerationService;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
-@Repository
-public class CodeAutoGeneration {
+@Service
+public class CodeAutoGenerationService {
 
     public String codeAutoGeneration(){
 

@@ -1,6 +1,9 @@
 package com.tuaev.GreenBlog.Controllers.ControllerRegistration;
 
-import com.tuaev.GreenBlog.RegistrationNewUser.RegistrationNewUserRepo;
+import com.tuaev.GreenBlog.Repositories.CheckEmail.CheckEmail;
+import com.tuaev.GreenBlog.dto.UserDTO;
+import com.tuaev.GreenBlog.service.ComparisonCodeService.ComparisonCodeService;
+import com.tuaev.GreenBlog.service.RegistrationNewUserService.RegistrationNewUserService;
 import jakarta.mail.MessagingException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,22 +15,35 @@ import java.io.IOException;
 @Controller
 public class ControllerRegistration {
 
-    RegistrationNewUserRepo registrationNewUserRepo;
+    UserDTO userDTO;
+    RegistrationNewUserService registrationNewUserService;
+    CheckEmail checkEmail;
+    ComparisonCodeService comparisonCode;
 
-    public ControllerRegistration(RegistrationNewUserRepo registrationNewUserRepo){
-        this.registrationNewUserRepo = registrationNewUserRepo;
+    public ControllerRegistration(RegistrationNewUserService registrationNewUserGET, CheckEmail checkEmail, UserDTO futureUser, ComparisonCodeService comparisonCode, RegistrationNewUserService registrationNewUserRepo){
+        this.userDTO = futureUser;
+        this.registrationNewUserService = registrationNewUserGET;
+        this.checkEmail = checkEmail;
+        this.comparisonCode = comparisonCode;
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registrationNewUser(Model model){
-
-        return registrationNewUserRepo.registrationNewUserGET(model);
+        return registrationNewUserService.registrationNewUserGET(model);
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String registrationNewUser(Model model, @RequestParam String email, @RequestParam String password,
-                                      @RequestParam String checkPassword) throws IOException, MessagingException {
+    public String registrationNewUser(Model model,
+                                      @RequestParam(defaultValue = "") String code,
+                                      @RequestParam(defaultValue = "") String email,
+                                      @RequestParam(defaultValue = "") String password,
+                                      @RequestParam(defaultValue = "") String checkPassword) throws IOException, MessagingException {
 
-        return registrationNewUserRepo.registrationNewUserPOST(model, email, password, checkPassword);
+        if (!email.equals("") && !password.equals("") && !checkPassword.equals("")) {
+            return checkEmail.checkEmail(model, email, password, checkPassword);
+        }else {
+            return comparisonCode.comparisonCode(model, code, userDTO.getEmail(), userDTO.getPassword());
+        }
     }
+
 }

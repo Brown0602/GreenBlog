@@ -1,6 +1,7 @@
-package com.tuaev.GreenBlog.RegistrationNewUser.EmailAuthenticationRepo;
+package com.tuaev.GreenBlog.service.EmailAuthenticationService;
 
-import com.tuaev.GreenBlog.RegistrationNewUser.CodeAutoGeneration.CodeAutoGeneration;
+import com.tuaev.GreenBlog.service.CodeAutoGenerationService.CodeAutoGenerationService;
+import com.tuaev.GreenBlog.service.ComparisonCodeService.ComparisonCodeService;
 import jakarta.mail.Message;
 import jakarta.mail.MessagingException;
 import jakarta.mail.Session;
@@ -9,18 +10,22 @@ import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+
 import java.io.IOException;
 import java.util.Properties;
 
 @PropertySource("classpath:application.properties")
-@Repository
-public class EmailAuthentication {
+@Service
+public class EmailAuthenticationService {
 
-    CodeAutoGeneration codeAutoGeneration;
+    ComparisonCodeService comparisonCodeService;
+    CodeAutoGenerationService codeAutoGenerationService;
 
-    EmailAuthentication(CodeAutoGeneration codeAutoGeneration){
-        this.codeAutoGeneration = codeAutoGeneration;
+    EmailAuthenticationService(ComparisonCodeService comparisonCode, CodeAutoGenerationService codeAutoGeneration){
+        this.comparisonCodeService = comparisonCode;
+        this.codeAutoGenerationService = codeAutoGeneration;
     }
 
     @Value("${mail.password}")
@@ -28,23 +33,28 @@ public class EmailAuthentication {
     @Value("${mail.myEmail}")
     private String myEmail;
 
-    public void emailAuthentication(String email) throws MessagingException, IOException {
+    public String emailAuthentication(Model model, String email) throws MessagingException, IOException {
 
         final Properties properties = new Properties();
-        properties.load(EmailAuthentication.class.getClassLoader().getResourceAsStream("application.properties"));
+        properties.load(EmailAuthenticationService.class.getClassLoader().getResourceAsStream("application.properties"));
 
         Session mailSession = Session.getDefaultInstance(properties);
         MimeMessage message = new MimeMessage(mailSession);
         message.setFrom(new InternetAddress(myEmail));
         message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
         message.setSubject("Подтверждение регистрации на сайте");
-        String code = codeAutoGeneration.codeAutoGeneration();
+        String code = codeAutoGenerationService.codeAutoGeneration();
+        comparisonCodeService.setCode(code);
         message.setText("Для потверждения регистрации введите в поле формы указанный код: " + code);
         Transport transport = mailSession.getTransport();
         transport.connect(myEmail, mailPassword);
         transport.sendMessage(message, message.getAllRecipients());
         transport.close();
-
-        }
+        String registrationForm = "false";
+        String registrationConfirmationForm = "true";
+        model.addAttribute("registrationForm", registrationForm);
+        model.addAttribute("registrationConfirmationForm", registrationConfirmationForm);
+        return "registration";
+    }
 
 }

@@ -2,18 +2,15 @@
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Регистрация</title>
-    <link rel="icon" href="/img/b.png">
     <link rel="stylesheet" type="text/css" href="/registrationStyle.css">
 </head>
 <body>
-
-<header class="main">
-</header>
-
-<a href="/" ><img class="header_image" src="/img/b.png" width="75" height="75"></a>
-
-<form class="registration" th:if="${registrationForm == 'true'}" method="post">
-    <header class="m">Регистрация</header>
+<div class="header">
+    <a class="main" href="/">ЗАМЕТКИ.ru - <div id="text">бесплатный онлайн блокнот</div></a>
+</div>
+<form class="registrationForm" th:if="${registrationForm == 'true'}" method="post">
+    <header class="m">РЕГИСТРАЦИЯ</header>
+    <input class="username" type="text" required name="username" th:value="${username}" placeholder="Введите имя пользователя"><br>
     <input class="email" type="email" required name="email" th:value="${email}" placeholder="Введите Email"><br>
     <input class="password" type="password" required name="password" th:value="${password}" placeholder="Введите пароль"><br>
     <input class="checkPassword" type="password" required th:value="${checkPassword}" name="checkPassword" placeholder="Повторите пароль"><br>
@@ -27,7 +24,7 @@
 </form>
 
 <form class="registrationConfirmationForm" th:if="${registrationConfirmationForm == 'true'}" method="post">
-    <header class="headerAuthenticationConfirmation">Подтверждение регистрации</header>
+    <header class="headerAuthenticationConfirmation">ПОДТВЕРЖДЕНИЕ РЕГИСТРАЦИИ</header>
     <input class="confirmationOfRegistration" type="text" required name="code" placeholder="Введите код подтверждения"><br>
     <input class="buttonAuthenticationConfirmation" type="submit" value="Подтвердить"><br>
     <div class="errorChecksCode" th:if="${errorChecksCode == 'true'}">

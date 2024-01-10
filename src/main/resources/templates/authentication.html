@@ -7,15 +7,15 @@
     <title>Вход</title>
 </head>
 <body>
-
-<header class="main">
-</header>
-
-<a href="/" ><img class="header_image" src="/img/b.png" width="75" height="75"></a>
-
+<div class="header">
+    <div class="view">
+<a class="main" href="/">ЗАМЕТКИ.ru - <div id="text">бесплатный онлайн блокнот</div></a>
+    </div>
+</div>
 <form method="post">
-    <header class="m">Вход</header>
-    <input class="username" type="email"  required name="email" placeholder="Введите Email"><br>
+    <header class="m">ВХОД</header>
+    <input class="username" type="text" required name="username" placeholder="Введите имя пользователя"><br>
+    <input class="email" type="email"  required name="email" placeholder="Введите Email"><br>
     <input class="password" type="password" required name="password" placeholder="Введите пароль"><br>
     <input class="button" type="submit" value="Войти"><br>
     <div th:if="${userSearchErrorBoolean == 'true'}">
@@ -24,6 +24,5 @@
     <a class="registration" href="/registration">Создать аккаунт</a><br>
     <a class="recoverPassword" href="/forgot/password">Забыли пароль?</a>
 </form>
-
 </body>
 </html>

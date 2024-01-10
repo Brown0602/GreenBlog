@@ -10,21 +10,33 @@ import org.springframework.data.relational.core.mapping.Table;
 public class User {
 
     @Id
-    @Column("id")
+    @Column("user_id")
     private long user_id;
+    @Column("user_name")
+    private String user_name;
     @Column("user_email")
     private String user_email;
     @Column("user_password")
     private String user_password;
 
-    public User(long user_id, String user_email, String user_password){
-        this.user_id = user_id;
+    public User(){
+
+    }
+
+    public void setUser_email(String user_email) {
         this.user_email = user_email;
+    }
+
+    public void setUser_password(String user_password) {
         this.user_password = user_password;
     }
 
-    public User(){
+    public String getUser_name() {
+        return user_name;
+    }
 
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
     }
 
     public String getUser_email() {

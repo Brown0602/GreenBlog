@@ -2,7 +2,7 @@ package com.tuaev.GreenBlog.Repositories.CheckEmail;
 
 import com.tuaev.GreenBlog.dto.UserDTO;
 import com.tuaev.GreenBlog.models.User;
-import com.tuaev.GreenBlog.service.RegistrationNewUserService.RegistrationNewUserService;
+import com.tuaev.GreenBlog.services.RegistrationNewUserService.RegistrationNewUserService;
 import com.tuaev.GreenBlog.userRowMapper.UserRowMapper;
 import jakarta.mail.MessagingException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -27,7 +27,7 @@ public class CheckEmail {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public String checkEmail(Model model, String email, String password, String checkPassword) throws MessagingException, IOException {
+    public String checkEmail(Model model, String username, String email, String password, String checkPassword) throws MessagingException, IOException {
 
         try {
             String sqlCheck = "SELECT * FROM users WHERE user_email = ?";
@@ -43,6 +43,7 @@ public class CheckEmail {
                 model.addAttribute("checkPassword", checkPassword);
                 return "registration";
             }catch(EmptyResultDataAccessException emptyResultDataAccessException){
+                userDTO.setUsername(username);
                 userDTO.setEmail(email);
                 userDTO.setPassword(password);
                 return registrationNewUserService.registrationNewUserPOST(model, email, password, checkPassword);

@@ -1,11 +1,111 @@
-.header_image{
-position: absolute;
-top: 0px;
-left: 150px;
-border: 0px;
+html{
+height: 0px;
 }
 
-header{
+body{
+margin: 0px;
+min-width: 1150px;
+}
+
+#text{
+font-size: 18px;
+display: inline-block;
+}
+
+.header{
+height: 50px;
+background-color: #7B68EE;
+}
+
+.main{
+left: 0px;
+height: 33.2px;
+text-decoration: none;
+font-family: serif;
+font-size: 24px;
+top: 7.9px;
+position: absolute;
+border-radius: 12.5px;
+padding: 1px;
+color: white;
+}
+
+.authentication{
+top: 7.4px;
+float: right;
+position: relative;
+padding-top: 1px;
+padding-bottom: 1px;
+padding-left: 5px;
+padding-right: 5px;
+height: 33.2px;
+font-family: serif;
+border-radius: 12.5px;
+font-size: 24px;
+text-decoration: none;
+color: white;
+background-color: #59c287;
+}
+
+.sessionUsername{
+padding-top: 2px;
+padding-bottom: 2px;
+display: inline-block;
+}
+
+.username_and_button_exit{
+height: 50px;
+}
+
+.exit_button{
+border: solid #59c287;
+margin-left: 5px;
+font-size: 24px;
+top: 7.9px;
+float: right;
+position: relative;
+padding-top: 2px;
+padding-bottom: 2px;
+padding-left: 5px;
+padding-right: 5px;
+height: 35.2px;
+font-family: serif;
+border-radius: 12.5px;
+text-decoration: none;
+color: white;
+background-color: #59c287;
+}
+
+.profile{
+display: inline-block;
+float: right;
+top: 7.9px;
+position: relative;
+padding-top: 1px;
+padding-bottom: 1px;
+padding-left: 5px;
+padding-right: 5px;
+height: 33.2px;
+font-family: serif;
+border-radius: 12.5px;
+font-size: 24px;
+text-decoration: none;
+color: white;
+background-color: #59c287;
+}
+
+
+.view{
+top: 0px;
+position: relative;
+left: 5%;
+width: 80%;
+opacity: 1;
+height: 50px;
+}
+
+.mainHeader{
+position: absolute;
 opacity: 0.5;
 width: 100%;
 height: 75px;
@@ -13,57 +113,26 @@ background: #fec002;
 }
 
 .search{
+top: 18.3px;
+position: relative;
+display: inline-block;
 outline: none;
-border: solid 2px #fba83a;;
+border: solid 2px #fba83a;
 border-radius: 12.5px;
 font-family: system-ui;
-top: 19px;
 font-size: 25px;
 height: 38.4px;
 width: 54%;
-position: absolute;
-right: 30%;
 }
 
 .button_search{
+top: 18.3px;
+position: relative;
+display: inline-block;
 background: white;
 border: solid 2px #fba83a;
 border-radius: 12.5px;
 font-family: system-ui;
-right: 24%;
 font-size: 25px;
 height: 38.4px;
-top: 19px;
-position: absolute;
-}
-
-body{
-background-attachment: fixed;
-background-position: center;
-background-size: cover;
-background-image: url(img/html.jpg);
-background-repeat: no-repeat;
-margin: 0px;
-}
-
-html{
-height: 0px;
-}
-
-.authentication{
-padding: 1px;
-height: 33.2px;
-font-family: system-ui;
-background: white;
-border-radius: 12.5px;
-border: solid 2px #fba83a;
-top: 19px;
-font-size: 24px;
-right: 150px;
-position: absolute;
-}
-
-a{
-text-decoration: none;
-color: black;
 }

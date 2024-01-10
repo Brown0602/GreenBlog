@@ -1,7 +1,7 @@
-package com.tuaev.GreenBlog.service.EmailAuthenticationService;
+package com.tuaev.GreenBlog.services.EmailAuthenticationService;
 
-import com.tuaev.GreenBlog.service.CodeAutoGenerationService.CodeAutoGenerationService;
-import com.tuaev.GreenBlog.service.ComparisonCodeService.ComparisonCodeService;
+import com.tuaev.GreenBlog.services.CodeAutoGenerationService.CodeAutoGenerationService;
+import com.tuaev.GreenBlog.services.ComparisonCodeService.ComparisonCodeService;
 import jakarta.mail.Message;
 import jakarta.mail.MessagingException;
 import jakarta.mail.Session;
@@ -42,10 +42,10 @@ public class EmailAuthenticationService {
         MimeMessage message = new MimeMessage(mailSession);
         message.setFrom(new InternetAddress(myEmail));
         message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
-        message.setSubject("Подтверждение регистрации на сайте");
+        message.setSubject("Подтверждение регистрации на сайте 'Заметки.ru'");
         String code = codeAutoGenerationService.codeAutoGeneration();
         comparisonCodeService.setCode(code);
-        message.setText("Для потверждения регистрации введите в поле формы указанный код: " + code);
+        message.setText("Здравствуйте!\nДля подтверждения регистрации введите в поле формы указанный код: " + code);
         Transport transport = mailSession.getTransport();
         transport.connect(myEmail, mailPassword);
         transport.sendMessage(message, message.getAllRecipients());

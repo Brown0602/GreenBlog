@@ -8,23 +8,17 @@
 </head>
 <body>
 
-<header>
-</header>
-
-<form action="/search" method="post">
-    <input class="search" required type="search" placeholder="Поиск рецептов по названию">
-    <input class="button_search" type="submit" value="Найти">
-</form>
-
-<a href="/" ><img class="header_image" src="/img/b.png" width="75" height="75"></a>
-
-    <div class="authentication">
-        <a href="/authentication">Вход/Регистрация</a>
-    </div>
-
-<div class="content">
-
+<div class="header">
+<div class="view">
+    <form action="/" method="post">
+        <a class="main" href="/">ЗАМЕТКИ.ru - <div id="text">бесплатный онлайн блокнот</div></a>
+        <a th:if="${username == null}" class="authentication" href="/authentication">Вход/Регистрация</a>
+        <div th:if="${username != null}" class="username_and_button_exit">
+            <input class="exit_button" type="submit" name="exit" value="Выйти">
+        <a class="profile" href="/profile"><div class="sessionUsername" th:text="${username}"></div></a>
+        </div>
+    </form>
 </div>
-
+</div>
 </body>
 </html>

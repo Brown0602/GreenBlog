@@ -2,6 +2,25 @@ package com.tuaev.GreenBlog.dto;
 
 public class UserDTO {
 
+    private int fk_users_id;
+    private String username;
+
+    public int getFk_users_id() {
+        return fk_users_id;
+    }
+
+    public void setFk_users_id(int fk_users_id) {
+        this.fk_users_id = fk_users_id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     private String email;
     private String password;
 

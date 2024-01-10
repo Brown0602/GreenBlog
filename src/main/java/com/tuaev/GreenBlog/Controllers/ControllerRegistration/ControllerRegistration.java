@@ -2,8 +2,8 @@ package com.tuaev.GreenBlog.Controllers.ControllerRegistration;
 
 import com.tuaev.GreenBlog.Repositories.CheckEmail.CheckEmail;
 import com.tuaev.GreenBlog.dto.UserDTO;
-import com.tuaev.GreenBlog.service.ComparisonCodeService.ComparisonCodeService;
-import com.tuaev.GreenBlog.service.RegistrationNewUserService.RegistrationNewUserService;
+import com.tuaev.GreenBlog.services.ComparisonCodeService.ComparisonCodeService;
+import com.tuaev.GreenBlog.services.RegistrationNewUserService.RegistrationNewUserService;
 import jakarta.mail.MessagingException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,15 +34,16 @@ public class ControllerRegistration {
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String registrationNewUser(Model model,
+                                      @RequestParam(defaultValue = "") String username,
                                       @RequestParam(defaultValue = "") String code,
                                       @RequestParam(defaultValue = "") String email,
                                       @RequestParam(defaultValue = "") String password,
                                       @RequestParam(defaultValue = "") String checkPassword) throws IOException, MessagingException {
 
         if (!email.equals("") && !password.equals("") && !checkPassword.equals("")) {
-            return checkEmail.checkEmail(model, email, password, checkPassword);
+            return checkEmail.checkEmail(model, username, email, password, checkPassword);
         }else {
-            return comparisonCode.comparisonCode(model, code, userDTO.getEmail(), userDTO.getPassword());
+            return comparisonCode.comparisonCode(model, code, userDTO.getUsername(), userDTO.getEmail(), userDTO.getPassword());
         }
     }
 

@@ -1,4 +1,4 @@
-package com.tuaev.GreenBlog.service.CodeAutoGenerationService;
+package com.tuaev.GreenBlog.services.CodeAutoGenerationService;
 
 import org.springframework.stereotype.Service;
 

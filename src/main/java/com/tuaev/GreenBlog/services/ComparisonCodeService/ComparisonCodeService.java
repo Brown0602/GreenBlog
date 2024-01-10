@@ -1,4 +1,4 @@
-package com.tuaev.GreenBlog.service.ComparisonCodeService;
+package com.tuaev.GreenBlog.services.ComparisonCodeService;
 
 import com.tuaev.GreenBlog.Repositories.CreateNewUser.CreateNewUser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +29,10 @@ public class ComparisonCodeService {
 
     }
 
-    public String comparisonCode(Model model, String code, String email, String password){
+    public String comparisonCode(Model model, String code, String username, String email, String password){
 
         if (code.equals(getCode())){
-            createNewUser.NewUser(model, email, password);
+            createNewUser.NewUser(model, username, email, password);
             return "redirect:/";
         }else {
             String registrationForm = "false";

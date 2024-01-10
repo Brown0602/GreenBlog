@@ -1,7 +1,7 @@
-package com.tuaev.GreenBlog.service.ForgotPassword;
+package com.tuaev.GreenBlog.services.ForgotPassword;
 
-import com.tuaev.GreenBlog.service.CodeAutoGenerationService.CodeAutoGenerationService;
-import com.tuaev.GreenBlog.service.ComparisonCodeService.ComparisonCodeService;
+import com.tuaev.GreenBlog.services.CodeAutoGenerationService.CodeAutoGenerationService;
+import com.tuaev.GreenBlog.services.ComparisonCodeService.ComparisonCodeService;
 import jakarta.mail.Message;
 import jakarta.mail.MessagingException;
 import jakarta.mail.Session;

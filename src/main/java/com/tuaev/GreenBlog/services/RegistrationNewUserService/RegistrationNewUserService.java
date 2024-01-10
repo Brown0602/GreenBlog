@@ -1,6 +1,6 @@
-package com.tuaev.GreenBlog.service.RegistrationNewUserService;
+package com.tuaev.GreenBlog.services.RegistrationNewUserService;
 
-import com.tuaev.GreenBlog.service.EmailAuthenticationService.EmailAuthenticationService;
+import com.tuaev.GreenBlog.services.EmailAuthenticationService.EmailAuthenticationService;
 import jakarta.mail.MessagingException;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;

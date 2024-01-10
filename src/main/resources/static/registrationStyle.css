@@ -1,25 +1,50 @@
-.registration{
+.registrationForm{
 background: white;
-font-family: system-ui;
+font-family: serif;
+position: relative;
+top: 5px;
 width: 400px;
 height: 450px;
-position: absolute;
-top: 0;
 right: 0;
 bottom: 0;
 left: 0;
 margin: auto;
 padding-top: 25px;
 border-radius: 25px;
+border: solid 2px #7B68EE;
+}
+
+.main{
+left: 5%;
+height: 33.2px;
+text-decoration: none;
+font-family: serif;
+font-size: 24px;
+top: 7.9px;
+position: absolute;
+border-radius: 12.5px;
+padding: 1px;
+color: white;
+}
+
+#text{
+font-size: 18px;
+display: inline-block;
+}
+
+.header{
+height: 50px;
+background-color: #7B68EE;
 }
 
 .registrationConfirmationForm{
+border: solid 2px #7B68EE;
 background: white;
 font-family: system-ui;
 width: 400px;
 height: 450px;
-position: absolute;
-top: 0;
+position: relative;
+top: 5px;
 right: 0;
 bottom: 0;
 left: 0;
@@ -29,7 +54,7 @@ border-radius: 25px;
 }
 
 .confirmationOfRegistration{
-border: solid 2px #425168;
+border: solid 2px #7B68EE;
 padding: 5px;
 border-radius: 10px;
 width: 315px;
@@ -40,8 +65,8 @@ margin:0 auto;
 
 .buttonAuthenticationConfirmation{
 color: white;
-background: #293244;
-border: solid 2px #425168;
+background: #59c287;
+border: solid 2px #59c287;
 width: 250px;
 padding: 5px;
 border-radius: 10px;
@@ -50,8 +75,18 @@ display: block;
 margin:0 auto;
 }
 
+.username{
+border: solid 2px #7B68EE;
+padding: 5px;
+border-radius: 10px;
+width: 315px;
+font-size: 25px;
+display: block;
+margin:0 auto;
+}
+
 .email{
-border: solid 2px #425168;
+border: solid 2px #7B68EE;
 padding: 5px;
 border-radius: 10px;
 width: 315px;
@@ -61,7 +96,7 @@ margin:0 auto;
 }
 
 .password{
-border: solid 2px #425168;
+border: solid 2px #7B68EE;
 padding: 5px;
 border-radius: 10px;
 width: 315px;
@@ -83,7 +118,7 @@ margin-bottom: 50px;
 }
 
 .checkPassword{
-border: solid 2px #425168;
+border: solid 2px #7B68EE;
 padding: 5px;
 border-radius: 10px;
 width: 315px;
@@ -106,8 +141,8 @@ margin-left: 35.9px;
 
 .button{
 color: white;
-background: #293244;
-border: solid 2px #425168;
+background: #59c287;
+border: solid 2px #59c287;
 width: 250px;
 padding: 5px;
 border-radius: 10px;
@@ -116,27 +151,8 @@ display: block;
 margin:0 auto;
 }
 
-.main{
-width: 100%;
-height: 75px;
-background: #293244;
-opacity: 0.5;
-}
-
-.header_image{
-position: absolute;
-top: 0px;
-left: 100px;
-border: 0px;
-}
-
 body{
 margin: 0px;
-background-attachment: fixed;
-background-position: center;
-background-size: cover;
-background-image: url(img/dark.jpg);
-background-repeat: no-repeat;
 }
 
 html{

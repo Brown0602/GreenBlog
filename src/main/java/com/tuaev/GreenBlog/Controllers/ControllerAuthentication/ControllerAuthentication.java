@@ -1,6 +1,7 @@
 package com.tuaev.GreenBlog.Controllers.ControllerAuthentication;
 
-import com.tuaev.GreenBlog.Repositories.FindById.FindById;
+import com.tuaev.GreenBlog.Repositories.FindByIdUser.FindById;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,8 +27,7 @@ public class ControllerAuthentication {
     }
 
     @RequestMapping(value = "/authentication", method = RequestMethod.POST)
-    public String authentication(Model model, @RequestParam String email, @RequestParam String password){
-
-        return findById.findByEmailAndPassword(model, email, password);
+    public String authentication(Model model, @RequestParam String username, @RequestParam String email, @RequestParam String password, HttpSession session){
+        return findById.findByEmailAndPassword(model, username, email, password, session);
     }
 }

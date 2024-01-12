@@ -27,11 +27,13 @@ public class ProfileGetNoteId {
         String username = (String) session.getAttribute("username");
         if (username == null){
             model.addAttribute("username", null);
+//            return "redirect:/";
+        }else {
+            Boolean displayUpdateNote = true;
+            model.addAttribute("displayUpdateNote", displayUpdateNote);
             List notes = findAllNotes.findAllNotes(session, model);
             model.addAttribute("notes", notes);
             readNoteValues.readNoteValues(note_id, model);
-//            return "redirect:/";
-        }else {
             model.addAttribute("username", username);
             model.addAttribute(username);
         }

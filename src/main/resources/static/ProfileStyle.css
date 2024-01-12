@@ -80,7 +80,7 @@ border-right: solid 1px silver;
 border-bottom: solid 1px silver;
 }
 
-.create_new_note{
+.create_new_note_and_update_note{
 display: flex;
 border-bottom: solid 1px silver;
 text-align: center;
@@ -88,6 +88,7 @@ padding-left: 15px;
 padding-right: 15px;
 padding-top: 10px;
 padding-bottom: 10px;
+flex-direction: column;
 }
 
 #input_create_new_note{
@@ -100,6 +101,24 @@ border-radius: 15px;
 }
 
 #input_create_new_note:hover{
+font-size: 16px;
+color: white;
+padding: 10px;
+background-color: #7B68EE;
+border: 0px;
+border-radius: 15px;
+}
+
+#input_update_note{
+font-size: 16px;
+color: white;
+padding: 10px;
+background-color: #59c287;
+border: 0px;
+border-radius: 15px;
+}
+
+#input_update_note:hover{
 font-size: 16px;
 color: white;
 padding: 10px;

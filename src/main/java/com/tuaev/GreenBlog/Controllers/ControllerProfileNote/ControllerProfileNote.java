@@ -2,7 +2,7 @@ package com.tuaev.GreenBlog.Controllers.ControllerProfileNote;
 
 import com.tuaev.GreenBlog.Repositories.CreateNewNote.CreateNewNote;
 import com.tuaev.GreenBlog.Repositories.DeleteNoteById.DeleteNoteById;
-import com.tuaev.GreenBlog.services.Profile.ProfileGET;
+import com.tuaev.GreenBlog.Repositories.UpdateNoteById.UpdateNoteById;
 import com.tuaev.GreenBlog.services.Profile.ProfileGetNoteId;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +16,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ControllerProfileNote {
 
+    UpdateNoteById updateNoteById;
     DeleteNoteById deleteNoteById;
     ProfileGetNoteId profileGetNoteId;
     CreateNewNote createNewNote;
 
     @Autowired
-    public ControllerProfileNote(DeleteNoteById deleteNoteById, ProfileGetNoteId profileGetNoteId, CreateNewNote createNewNote){
+    public ControllerProfileNote(UpdateNoteById updateNoteById, DeleteNoteById deleteNoteById, ProfileGetNoteId profileGetNoteId, CreateNewNote createNewNote){
+        this.updateNoteById = updateNoteById;
         this.deleteNoteById = deleteNoteById;
         this.profileGetNoteId = profileGetNoteId;
         this.createNewNote = createNewNote;
@@ -33,11 +35,16 @@ public class ControllerProfileNote {
     }
 
     @RequestMapping(value = "/profile/note/{note_id}", method = RequestMethod.POST)
-    public String personalProfileNoteDelete(@PathVariable("note_id") Long note_id, Model model, HttpSession session, @RequestParam(defaultValue = "Без названия") String note_title,
-                                  @RequestParam(defaultValue = "") String note_description,
-                                  @RequestParam(defaultValue = "") String search_notes){
-//        createNewNote.createNewNote(note_title, note_description);
-        deleteNoteById.deleteNote(note_id);
+    public String personalProfileNoteDelete(@PathVariable("note_id") Long note_id, Model model, HttpSession session,
+                                            @RequestParam(defaultValue = "Без названия") String note_title,
+                                            @RequestParam(defaultValue = "") String note_description,
+                                            @RequestParam(defaultValue = "") String search_notes,
+                                            @RequestParam(defaultValue = "") String update){
+        if (update.equals("↺ Изменить заметку")){
+            updateNoteById.updateNoteById(note_title, note_description, note_id);
+        }else {
+            deleteNoteById.deleteNote(note_id);
+        }
         return "redirect:/profile";
     }
 

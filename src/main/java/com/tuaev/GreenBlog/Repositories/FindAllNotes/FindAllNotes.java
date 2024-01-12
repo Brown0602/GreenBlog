@@ -1,7 +1,5 @@
 package com.tuaev.GreenBlog.Repositories.FindAllNotes;
 
-import com.tuaev.GreenBlog.NoteRowMapper.NoteRowMapper;
-import com.tuaev.GreenBlog.models.Note;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

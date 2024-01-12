@@ -35,10 +35,11 @@ public class ControllerProfile {
     public String personalProfile(@RequestParam(defaultValue = "Без названия") String note_title,
                                   @RequestParam(defaultValue = "") String note_description,
                                   @RequestParam(defaultValue = "") String search_notes,
-                                  @RequestParam(defaultValue = "") String delete, HttpSession session){
+                                  @RequestParam(defaultValue = "") String delete,
+                                  HttpSession session){
         if (delete.equals("Удалить")){
-            return profilePostDeleteAllNotes.profilePostDeleteAllNotes();
-        }else {
+            return profilePostDeleteAllNotes.profilePostDeleteAllNotes(session);
+        } else {
             return profilePostCreateNewNote.profilePostCreateNewNote(note_title, note_description, session);
         }
     }

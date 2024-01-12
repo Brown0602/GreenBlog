@@ -20,8 +20,9 @@
 <form class="form_main" method="post">
 <div class="content">
 <div class="notes">
-    <div class="create_new_note">
-        <input id="input_create_new_note" type="submit" formaction="/profile" value="+ Создать новую заметку">
+    <div class="create_new_note_and_update_note">
+        <input id="input_create_new_note" type="submit" formaction="/profile" value="+ Создать новую заметку"><br>
+        <input th:if="${displayUpdateNote == true}" id="input_update_note" type="submit" name="update" value="↺ Изменить заметку">
     </div>
     <div class="search_notes">
         <div class="form_search_notes">

@@ -3,11 +3,10 @@
 <head>
     <title>Регистрация</title>
     <link rel="stylesheet" type="text/css" href="/registrationStyle.css">
+    <link rel="stylesheet" type="text/css" href="/mainPageStyle.css">
 </head>
 <body>
-<div class="header">
-    <a class="main" href="/">ЗАМЕТКИ.ru - <div id="text">бесплатный онлайн блокнот</div></a>
-</div>
+<div th:insert="mainPage :: header"></div>
 <form class="registrationForm" th:if="${registrationForm == 'true'}" method="post">
     <header class="m">РЕГИСТРАЦИЯ</header>
     <input class="username" type="text" required name="username" th:value="${username}" placeholder="Введите имя пользователя"><br>

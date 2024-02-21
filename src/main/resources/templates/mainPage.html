@@ -7,11 +7,10 @@
     <title>Главная страница</title>
 </head>
 <body>
-
-<div class="header">
+<div th:fragment="header" class="header">
 <div class="view">
     <form action="/" method="post">
-        <a class="main" href="/">ЗАМЕТКИ.ru - <div id="text">бесплатный онлайн блокнот</div></a>
+        <a class="main" href="/">Notepad.ru - <div id="text">бесплатный онлайн блокнот</div></a>
         <a th:if="${username == null}" class="authentication" href="/authentication">Вход/Регистрация</a>
         <div th:if="${username != null}" class="username_and_button_exit">
             <input class="exit_button" type="submit" name="exit" value="Выйти">

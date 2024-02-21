@@ -1,4 +1,4 @@
-form{
+.formA{
 background: white;
 font-family: system-ui;
 width: 400px;
@@ -18,15 +18,6 @@ border: solid 2px #7B68EE;
 color: red;
 margin-left: 15px;
 font-size: 17.5px;
-}
-
-.view{
-top: 0px;
-position: relative;
-left: 5%;
-width: 80%;
-opacity: 1;
-height: 50px;
 }
 
 #text{
@@ -87,11 +78,6 @@ padding: 1px;
 color: white;
 }
 
-.header{
-height: 50px;
-background-color: #7B68EE;
-}
-
 .button{
 border: solid 2px #59c287;
 color: white;
@@ -129,15 +115,6 @@ position: absolute;
 top: 0px;
 left: 150px;
 border: 0px;
-}
-
-body{
-margin: 0px;
-background-attachment: fixed;
-background-position: center;
-background-size: cover;
-background-image: url(img/rex.jpg);
-background-repeat: no-repeat;
 }
 
 html{
